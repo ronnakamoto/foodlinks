@@ -11,3 +11,7 @@ FoodLinks aims to bring transparency to the Food Industry by utilizing blockchai
 -   TypeScript
 -   Solidity
 -   Web3 Storage
+
+## Acknowledgements
+
+Built using the Scaffold Eth 2 Toolkit
