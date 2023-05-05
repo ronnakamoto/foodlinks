@@ -14,7 +14,7 @@ const SupplyManagement: NextPage = () => {
   const sidePanelTitle = "Add New Food Supply";
   const [supplies, setSupplies] = useState<any[]>([]);
   const [showSidePanel, setShowSidePanel] = useState(false);
-  const [showApproveFoodLinks, setShowApproveFoodLinks] = useState(false);
+  const [showApproveFoodLinks, setShowApproveFoodLinks] = useState(true);
   const userWalletAddress = useGlobalState(state => state.userWalletAddress);
 
   const { data: TraceabilityContract } = useScaffoldContract({ contractName: "Traceability" });
