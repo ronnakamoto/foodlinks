@@ -169,7 +169,7 @@ export default function Table({
         </tr>
       </thead>
       <tbody>
-        {tableData.map((row: Record<string, any>) => (
+        {tableData?.map((row: Record<string, any>) => (
           <tr key={row.id} onMouseEnter={() => handleCellMouseEnter(row, null)} onMouseLeave={handleCellMouseLeave}>
             {columns.map(column => (
               <td

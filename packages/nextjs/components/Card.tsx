@@ -4,6 +4,7 @@ interface CardProps {
   description: string;
   price: string;
   onBuyNowClicked?: (id: string) => void;
+  isBuyButtonLoading?: boolean;
 }
 
 export default function Card({ id, title, description, price, onBuyNowClicked, isBuyButtonLoading }: CardProps) {

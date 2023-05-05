@@ -1,7 +1,5 @@
 import Head from "next/head";
-import Link from "next/link";
 import type { NextPage } from "next";
-import { BugAntIcon, SparklesIcon } from "@heroicons/react/24/outline";
 
 const Home: NextPage = () => {
   return (

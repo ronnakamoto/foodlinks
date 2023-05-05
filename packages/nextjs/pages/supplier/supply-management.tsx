@@ -66,7 +66,7 @@ const SupplyManagement: NextPage = () => {
       //   ];
       const response = await fetch("/api/supplies");
       const supplies = await response.json();
-      setSupplies(supplies);
+      setSupplies(supplies || []);
     };
     fetchSupplies();
   }, []);

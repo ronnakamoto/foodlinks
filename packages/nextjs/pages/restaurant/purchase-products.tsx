@@ -36,7 +36,7 @@ const PurchaseProducts: NextPage = () => {
   }, [productToPurchase]);
 
   const updatePurchaseToOffchainDb = async (id: string) => {
-    const quantity = supplies?.find((supply: any) => supply.id === id)?.quantity - 1;
+    const quantity: number = supplies?.find((supply: any) => supply.id === id)?.quantity - 1;
     const response = await fetch("/api/supplies", {
       method: "PATCH",
       headers: {
@@ -47,8 +47,8 @@ const PurchaseProducts: NextPage = () => {
         quantity,
       }),
     });
-    const supplies = await response.json();
-    setSupplies(supplies);
+    const suppliesResponse = await response.json();
+    setSupplies(suppliesResponse);
   };
 
   const onRecieveProductBatchTransferred = (...args: unknown[]) => {

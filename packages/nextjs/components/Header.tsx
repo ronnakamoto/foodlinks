@@ -35,9 +35,12 @@ export const Header = () => {
 
   const navLinks = (
     <>
-      {/* <li>
-        <NavLink href="/">Home</NavLink>
-      </li> */}
+      <li>
+        <NavLink href="/supplier/register">Register as Supplier</NavLink>
+        <NavLink href="/restaurant/register">Register as Restaurant</NavLink>
+        <NavLink href="/consumer/register">Register as Consumer</NavLink>
+        <NavLink href="/supplier/supply-management">Food Supply Management</NavLink>
+      </li>
     </>
   );
 
