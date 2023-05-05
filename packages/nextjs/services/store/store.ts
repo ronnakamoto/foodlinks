@@ -12,9 +12,14 @@ import create from "zustand";
 type TGlobalState = {
   nativeCurrencyPrice: number;
   setNativeCurrencyPrice: (newNativeCurrencyPriceState: number) => void;
+  userWalletAddress: string;
+  setUserWalletAddress: (newUserWalletAddress: string) => void;
 };
 
 export const useGlobalState = create<TGlobalState>(set => ({
   nativeCurrencyPrice: 0,
   setNativeCurrencyPrice: (newValue: number): void => set(() => ({ nativeCurrencyPrice: newValue })),
+  userWalletAddress: "",
+  setUserWalletAddress: (newUserWalletAddress: string): void =>
+    set(() => ({ userWalletAddress: newUserWalletAddress })),
 }));

@@ -1,0 +1,69 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+enum UserType {
+  SUPPLIER
+  RESTAURANT
+  INSPECTOR
+  CONSUMER
+  LOCAL_AUTHORITY
+}
+
+model User {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId        String   @unique
+  bytes32UserId String
+  userType      UserType
+  name          String
+  location      String?
+  contact       String?
+  walletAddress String
+  safetyRating  Int?     @default(0)
+}
+
+model FoodProduct {
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  foodProductId  String
+  supplierId     String
+  name           String
+  price          Float
+  quantity       Int
+  productionDate DateTime @default(now())
+  expiryDate     DateTime
+  txHash         String
+  createdBy      String
+}
+
+model Inspection {
+  id                      String  @id @default(auto()) @map("_id") @db.ObjectId
+  inspectionId            String
+  bytes32InspectionId     String
+  restaurantId            String
+  timestamp               Int
+  inspectorId             String
+  comments                String
+  kitchenSanityScore      Int
+  waterQualityScore       Int
+  foodSampleLabTestPassed Boolean
+}
+
+model InspectionTeam {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  restaurantId String
+  inspectorIds String[]
+}
+
+model PendingConsumerClaim {
+  id         String @id @default(auto()) @map("_id") @db.ObjectId
+  consumerId String
+  amount     Float
+}

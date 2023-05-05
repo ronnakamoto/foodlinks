@@ -3,6 +3,7 @@ import { useDisconnect, useSwitchNetwork } from "wagmi";
 import { ArrowLeftOnRectangleIcon, ArrowsRightLeftIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
 import { Balance, BlockieAvatar } from "~~/components/scaffold-eth";
 import { useAutoConnect, useNetworkColor } from "~~/hooks/scaffold-eth";
+import { useGlobalState } from "~~/services/store/store";
 import { getTargetNetwork } from "~~/utils/scaffold-eth";
 
 /**
@@ -15,6 +16,7 @@ export const RainbowKitCustomConnectButton = () => {
   const configuredNetwork = getTargetNetwork();
   const { disconnect } = useDisconnect();
   const { switchNetwork } = useSwitchNetwork();
+  const setUserWalletAddress = useGlobalState(state => state.setUserWalletAddress);
 
   return (
     <ConnectButton.Custom>
@@ -61,6 +63,8 @@ export const RainbowKitCustomConnectButton = () => {
                   </div>
                 );
               }
+
+              setUserWalletAddress(account.address);
 
               return (
                 <div className="px-2 flex justify-end items-center">
